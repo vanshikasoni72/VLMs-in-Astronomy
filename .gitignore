@@ -1,0 +1,16 @@
+# Data and images
+data/
+*.png
+*.jpg
+*.jpeg
+*.fits
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# OS
+.DS_Store
