@@ -1,0 +1,4 @@
+[2026-10-22T22:29:55.864211+00:00] loading zoobot
+[2026-10-22T22:32:36.089885+00:00] finished zoobot: 2000 embeddings
+[2026-10-22T22:32:36.100891+00:00] loading clip
+[2026-10-22T22:36:19.449775+00:00] finished clip: 2000 embeddings
