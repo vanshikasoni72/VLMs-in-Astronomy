@@ -21,9 +21,9 @@ Galaxy Zoo 2 volunteers vote on "is there anything odd about this galaxy?" (`Cla
 
 Zoobot wins against *two* differently-trained general-purpose baselines, and the ranking is stable whether the LOF neighborhood size is 10, 20, or 30 — so it's not a fluke of one hyperparameter choice. See the plot (`lof_vs_human_odd_votes.png`, sent separately).
 
-A couple of concrete examples for discussion:
-- Galaxy `588555`: Zoobot's #1 most-anomalous-by-embedding galaxy in the sample, and volunteers rated it 81% odd — a clean hit.
-- Galaxy `202237`: volunteers rated it 88% odd, but Zoobot's embedding ranks it in the bottom ~18% for anomaly score — a clear miss, worth a look at the actual image to understand what the embedding is missing.
+A couple of concrete examples, checked against the actual images (not just the numbers):
+- Galaxy `588555`: Zoobot's #1 most-anomalous-by-embedding galaxy in the sample, and volunteers rated it 81% odd. Looking at the image: a chaotic, clumpy structure with no clear symmetric shape — it genuinely does look odd. Model and humans agree, and agree correctly.
+- Galaxy `202237`: volunteers rated it 88% odd, but Zoobot's embedding ranks it in the bottom ~18% for anomaly score. Looking at the image: it's actually a fairly smooth, ordinary-looking round galaxy — nothing visually jumps out. This looks less like a model failure and more like a noisy human label (see the vote-count caveat below) — worth keeping in mind before assuming every "disagreement" means the model is wrong.
 
 ## Finding 2: more fluent isn't more trustworthy
 
@@ -35,6 +35,8 @@ Same 50-image pilot (25 galaxies volunteers unanimously flagged odd, 25 unanimou
 | Qwen2-VL-2B | **88% (44/50)** |
 
 Qwen2-VL-2B's answers read as more confident and detailed, but it's dramatically more likely to confidently assert a specific (impossible) object identity — e.g. calling an anonymous Galaxy Zoo thumbnail "the Andromeda Galaxy (M31)". That's a direct hit on whether a model can be *trusted* for anomaly detection, not just whether it can describe an image.
+
+Checking one hallucination case against the actual image (galaxy `516751`, one of the unanimously-odd pilot galaxies): Qwen2-VL-2B called it "the galaxy NGC 4569 (also known as Arp 271)". Looking at the image, it's genuinely an interacting galaxy pair with a visible tidal tail — a real, unusual merger-like structure. So the model's *structural read* (interacting pair) was roughly in the right neighborhood; it's the *specific invented identity* that's wrong. That's a more precise — and more concerning — failure mode than "hallucinates randomly": it correctly senses something is structurally unusual, then confidently fabricates a specific, false identity on top of a reasonable observation. Easy to mistake for real insight if you don't check.
 
 ## Caveats (worth saying out loud to your guide)
 
