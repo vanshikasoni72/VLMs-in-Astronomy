@@ -24,7 +24,7 @@
 
 **Headline findings for guide meeting**
 
-1. **Domain-specific embeddings track human anomaly judgments better than general-purpose ones, and it's not a fluke of which general model you pick.** Zoobot (astronomy-specific) beats *both* CLIP and DINOv2 — two general-purpose models trained completely differently (text-supervised vs. self-supervised) — on the same 2000-image sample: r=0.300 vs. r=0.199 vs. r=0.145, all highly significant (p<0.0001), and the ranking is stable across three LOF neighborhood sizes (10/20/30). An earlier, noisier 300-image pilot found the same ordering with a wider gap (r=0.403 vs. r=0.126). Plot (300-image version): `results/lof_vs_human_odd_votes.png`.
+1. **Domain-specific embeddings track human anomaly judgments better than general-purpose ones, and it's not a fluke of which general model you pick.** Zoobot (astronomy-specific) beats *both* CLIP and DINOv2 — two general-purpose models trained completely differently (text-supervised vs. self-supervised) — on the same 2000-image sample: r=0.300 vs. r=0.199 vs. r=0.145, all highly significant (p<0.0001), and the ranking is stable across three LOF neighborhood sizes (10/20/30). An earlier, noisier 300-image pilot found the same ordering with a wider gap (r=0.403 vs. r=0.126). Plot: `results/lof_vs_human_odd_votes.png` (all 3 models, full 2000-image sample).
 2. **Bigger/more fluent ≠ more reliable.** Qwen2-VL-2B writes more detailed, confident answers than BLIP-2, but hallucinates a specific (wrong) object identity 88% of the time vs. BLIP-2's 10%, on identical anonymous thumbnails. Directly relevant to "can VLMs be *trusted* for anomaly detection", not just "can they describe images."
 
 **Methodology notes / caveats**
