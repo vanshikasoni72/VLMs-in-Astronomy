@@ -1,0 +1,6 @@
+[2026-10-22T22:46:37.897971+00:00] loading zoobot
+[2026-10-22T22:49:05.377229+00:00] finished zoobot: 2000 embeddings
+[2026-10-22T22:49:05.398743+00:00] loading clip
+[2026-10-22T22:53:05.233373+00:00] finished clip: 2000 embeddings
+[2026-10-22T22:53:05.240372+00:00] loading dinov2
+[2026-10-22T23:07:28.798367+00:00] finished dinov2: 2000 embeddings

@@ -181,6 +181,37 @@ def predict_clip(loaded, image, prompt):
     return f"PLACEHOLDER (embedding only, no classification head): embedding_norm={norm:.3f}"
 
 
+# ---------- DINOv2 (second general baseline, embeddings) ----------
+# Self-supervised vision model, widely used for exactly this kind of
+# embedding-based anomaly/novelty detection in the literature — a natural
+# second general-purpose comparison point alongside CLIP. Native
+# transformers architecture, no trust_remote_code needed.
+
+def load_dinov2():
+    from transformers import AutoImageProcessor, Dinov2Model
+
+    model_id = "facebook/dinov2-base"
+    processor = AutoImageProcessor.from_pretrained(model_id)
+    model = Dinov2Model.from_pretrained(model_id)
+    model.eval()
+    model.to(_device())
+    return {"model": model, "processor": processor}
+
+
+def embed_dinov2(loaded, image):
+    model, processor = loaded["model"], loaded["processor"]
+    inputs = processor(images=image, return_tensors="pt").to(_device())
+    with torch.no_grad():
+        output = model(**inputs)
+    return output.pooler_output.squeeze(0).cpu().numpy()
+
+
+def predict_dinov2(loaded, image, prompt):
+    embedding = embed_dinov2(loaded, image)
+    norm = float((embedding**2).sum() ** 0.5)
+    return f"PLACEHOLDER (embedding only, no classification head): embedding_norm={norm:.3f}"
+
+
 # ---------- AstroCLIP (astronomy baseline) ----------
 # Deliberately disabled by default. The only public weights found
 # (giovannicozzolongo/astroclip on Hugging Face) require
@@ -231,6 +262,7 @@ MODEL_REGISTRY = {
     "blip2": (load_blip2, predict_blip2),               # local-friendly (slow on CPU)
     "zoobot": (load_zoobot, predict_zoobot),            # local-friendly, placeholder output
     "clip": (load_clip, predict_clip),                  # local-friendly, placeholder output
+    "dinov2": (load_dinov2, predict_dinov2),            # local-friendly, placeholder output
     "astroclip": (load_astroclip, predict_astroclip),   # disabled until remote-code decision is made
 }
 
@@ -240,4 +272,5 @@ MODEL_REGISTRY = {
 EMBEDDING_REGISTRY = {
     "zoobot": (load_zoobot, embed_zoobot),
     "clip": (load_clip, embed_clip),
+    "dinov2": (load_dinov2, embed_dinov2),
 }
