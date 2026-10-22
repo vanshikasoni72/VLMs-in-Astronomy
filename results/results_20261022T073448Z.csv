@@ -1,0 +1,6 @@
+image_id,model_name,prompt_id,answer,timestamp
+100008,zoobot,embedding_v1,"PLACEHOLDER (encoder embedding only, no morphology head): embedding_norm=14.656",2026-10-22T07:34:47.772998+00:00
+100023,zoobot,embedding_v1,"PLACEHOLDER (encoder embedding only, no morphology head): embedding_norm=15.577",2026-10-22T07:34:47.886890+00:00
+100053,zoobot,embedding_v1,"PLACEHOLDER (encoder embedding only, no morphology head): embedding_norm=14.576",2026-10-22T07:34:48.004145+00:00
+100078,zoobot,embedding_v1,"PLACEHOLDER (encoder embedding only, no morphology head): embedding_norm=17.967",2026-10-22T07:34:48.125697+00:00
+100090,zoobot,embedding_v1,"PLACEHOLDER (encoder embedding only, no morphology head): embedding_norm=16.801",2026-10-22T07:34:48.238214+00:00

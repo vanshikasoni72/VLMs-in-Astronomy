@@ -1,0 +1,6 @@
+image_id,model_name,prompt_id,answer,timestamp
+100008,blip2,p1,This is an unusual spiral galaxy that has been observed to have unusually high levels of dust in the center and low amounts elsewhere,2026-10-22T08:41:41.912015+00:00
+100023,blip2,p1,The image shows the spiral galaxy ngc 5993,2026-10-22T08:42:27.159815+00:00
+100053,blip2,p1,The image shows the spiral arms of an irregular galaxy called ngc 522,2026-10-22T08:43:08.922025+00:00
+100078,blip2,p1,The image shows the spiral arms of an elliptical galaxy called nGC 4993,2026-10-22T08:43:52.270584+00:00
+100090,blip2,p1,This is an unusual spiral galaxy that looks very much the same as other galaxies in our sky,2026-10-22T08:44:35.812439+00:00

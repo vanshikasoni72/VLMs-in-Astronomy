@@ -3,3 +3,9 @@ torch
 pandas
 scikit-learn
 matplotlib
+pillow
+accelerate
+sentencepiece
+qwen-vl-utils
+timm
+torchvision

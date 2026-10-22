@@ -1,0 +1,37 @@
+image_id,model_name,prompt_id,answer,timestamp
+100008,zoobot,embedding_v1,"PLACEHOLDER (encoder embedding only, no morphology head): embedding_norm=14.656",2026-10-22T08:50:05.699718+00:00
+100023,zoobot,embedding_v1,"PLACEHOLDER (encoder embedding only, no morphology head): embedding_norm=15.577",2026-10-22T08:50:05.801944+00:00
+100053,zoobot,embedding_v1,"PLACEHOLDER (encoder embedding only, no morphology head): embedding_norm=14.576",2026-10-22T08:50:05.903217+00:00
+100078,zoobot,embedding_v1,"PLACEHOLDER (encoder embedding only, no morphology head): embedding_norm=17.967",2026-10-22T08:50:05.989668+00:00
+100090,zoobot,embedding_v1,"PLACEHOLDER (encoder embedding only, no morphology head): embedding_norm=16.801",2026-10-22T08:50:06.092364+00:00
+100008,blip2,p1,This is an unusual spiral galaxy that has been observed to have unusually high levels of dust in the center and low amounts elsewhere,2026-10-22T08:51:59.483942+00:00
+100023,blip2,p1,The image shows the spiral galaxy ngc 5993,2026-10-22T08:52:51.318669+00:00
+100053,blip2,p1,The image shows the spiral arms of an irregular galaxy called ngc 522,2026-10-22T08:53:34.114858+00:00
+100078,blip2,p1,The image shows the spiral arms of an elliptical galaxy called nGC 4993,2026-10-22T08:54:20.602290+00:00
+100090,blip2,p1,This is an unusual spiral galaxy that looks very much the same as other galaxies in our sky,2026-10-22T08:55:11.257482+00:00
+100008,qwen2vl_2b,p1,"The image you provided is of the galaxy NGC 1068 (also known as M59). This galaxy appears to be an elliptical galaxy with no obvious signs that it looks different from other galaxies in terms of size and brightness distribution.
+
+However, there's one feature worth noting: the central region around which light seems to emanate outward rather than being concentrated towards the center. In many spiral galaxies such as our own Milky Way Galaxy, the nucleus contains gas clouds that can produce bright",2026-10-22T08:56:12.356389+00:00
+100023,qwen2vl_2b,p1,"The image you provided appears to be an example of the ""Galaxy"" category on Google Maps Street View. The description suggests that it is not a real galaxy but rather some sort of anomaly.
+
+Here's how we can analyze and describe what might make such an object unusual:
+
+1. **Shape**: If there were no other objects in close proximity (like buildings), then any irregularity would likely indicate an anomaly.
+2. **Features**:
+   - **Color**: The color gradient from red at",2026-10-22T08:56:50.132958+00:00
+100053,qwen2vl_2b,p1,"The image you provided is of the galaxy NGC 1068 in the constellation Sagittarius.
+
+This galaxy appears to be an irregular spiral with some unusual characteristics:
+- The central region (the bulge) has a bright nucleus that looks more luminous than other parts.
+- There's also a prominent ring-like structure around it which might suggest a different type of morphology compared to regular spirals where such structures typically do not exist.
+  
+These anomalies could indicate either recent star formation activity within",2026-10-22T08:57:28.039657+00:00
+100078,qwen2vl_2b,p1,"The image you provided appears to be an example of the ""Sgr A*"" region in our Milky Way Galaxy's central black hole (the supermassive black hole at the center). This is known as Sagittarius A*, and it has been extensively studied due to its unique properties.
+
+Here’s what we know:
+
+1. **Location**: SGR A* lies within the galactic plane near the Sun.
+2. **Size**: It occupies less than 0.5% of the",2026-10-22T08:58:07.796261+00:00
+100090,qwen2vl_2b,p1,"The image you provided is of the galaxy NGC 1068 (also known as IC 2549). This galaxy appears to be an elliptical galaxy with no obvious signs that it looks different from other galaxies in terms of size and brightness.
+
+However, there's one feature worth noting: the presence of two bright spots near the center of the nucleus. These brighter regions could indicate some unusual properties such as star formation activity within these areas, which might not typically occur at the core",2026-10-22T08:58:45.927911+00:00

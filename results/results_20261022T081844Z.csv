@@ -1,0 +1,6 @@
+image_id,model_name,prompt_id,answer,timestamp
+100008,blip2,p1,"Describe this galaxy's shape and visual features. Does it look like a typical, ordinary galaxy, or does something about it look odd or anomalous? Answer in 1-2 sentences.",2026-10-22T08:21:44.696281+00:00
+100023,blip2,p1,"Describe this galaxy's shape and visual features. Does it look like a typical, ordinary galaxy, or does something about it look odd or anomalous? Answer in 1-2 sentences.",2026-10-22T08:22:12.450395+00:00
+100053,blip2,p1,"Describe this galaxy's shape and visual features. Does it look like a typical, ordinary galaxy, or does something about it look odd or anomalous? Answer in 1-2 sentences.",2026-10-22T08:22:36.201420+00:00
+100078,blip2,p1,"Describe this galaxy's shape and visual features. Does it look like a typical, ordinary galaxy, or does something about it look odd or anomalous? Answer in 1-2 sentences.",2026-10-22T08:23:04.249931+00:00
+100090,blip2,p1,"Describe this galaxy's shape and visual features. Does it look like a typical, ordinary galaxy, or does something about it look odd or anomalous? Answer in 1-2 sentences.",2026-10-22T08:23:32.129095+00:00
