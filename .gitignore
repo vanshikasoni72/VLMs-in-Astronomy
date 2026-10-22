@@ -1,6 +1,7 @@
-# Data and images
+# Data (raw images/labels, fully excluded). PNGs are not excluded globally
+# any more — results/ plots are generated analysis outputs, not bulk
+# telescope imagery, and should be tracked.
 data/
-*.png
 *.jpg
 *.jpeg
 *.fits
