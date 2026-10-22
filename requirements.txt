@@ -9,3 +9,4 @@ sentencepiece
 qwen-vl-utils
 timm
 torchvision
+scipy

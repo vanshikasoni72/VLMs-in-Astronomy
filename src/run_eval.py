@@ -18,7 +18,7 @@ from pathlib import Path
 import torch
 from PIL import Image
 
-from data import DEFAULT_DATA_DIR, get_test_subset
+from data import DEFAULT_DATA_DIR, get_manifest_subset, get_test_subset
 from models import MODEL_REGISTRY
 
 PROMPTS = {
@@ -42,13 +42,16 @@ RESULTS_DIR = Path(__file__).resolve().parent.parent / "results"
 LOGS_DIR = Path(__file__).resolve().parent.parent / "logs"
 
 
-def run(models_to_run, n_images, prompt_id, data_dir, results_writer, results_file, log_file):
+def run(models_to_run, n_images, prompt_id, data_dir, manifest_path, results_writer, results_file, log_file):
     """Writes each row to results_writer (and flushes) as soon as it's
     produced, and each log line to log_file immediately — so a crash in one
     model (segfault, OOM, etc.) can't erase rows already written for an
     earlier model.
     """
-    subset = get_test_subset(n=n_images, data_dir=data_dir)
+    if manifest_path:
+        subset = get_manifest_subset(manifest_path, data_dir=data_dir)
+    else:
+        subset = get_test_subset(n=n_images, data_dir=data_dir)
     prompt_text = PROMPTS[prompt_id]
 
     def log(line):
@@ -109,6 +112,12 @@ def main():
     )
     parser.add_argument("--prompt-id", type=str, default="p1")
     parser.add_argument("--data-dir", type=str, default=None)
+    parser.add_argument(
+        "--manifest",
+        type=str,
+        default=None,
+        help="Path to a pilot manifest CSV from select_subset.py (overrides --n-images)",
+    )
     args = parser.parse_args()
 
     models_to_run = [m.strip() for m in args.models.split(",")]
@@ -117,6 +126,7 @@ def main():
             raise ValueError(f"Unknown model {m!r}. Options: {list(MODEL_REGISTRY)}")
 
     data_dir = Path(args.data_dir) if args.data_dir else DEFAULT_DATA_DIR
+    manifest_path = Path(args.manifest) if args.manifest else None
 
     RESULTS_DIR.mkdir(exist_ok=True)
     LOGS_DIR.mkdir(exist_ok=True)
@@ -132,7 +142,9 @@ def main():
         results_writer.writeheader()
         results_file.flush()
 
-        n_rows = run(models_to_run, args.n_images, args.prompt_id, data_dir, results_writer, results_file, log_file)
+        n_rows = run(
+            models_to_run, args.n_images, args.prompt_id, data_dir, manifest_path, results_writer, results_file, log_file
+        )
 
     print(f"Wrote {n_rows} rows to {results_path}")
     print(f"Log: {log_path}")

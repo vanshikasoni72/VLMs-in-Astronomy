@@ -53,3 +53,13 @@ def get_test_subset(n: int = 5, data_dir: Path = DEFAULT_DATA_DIR) -> pd.DataFra
     subset = solutions.sort_values("GalaxyID").head(n).copy()
     subset["image_path"] = subset["GalaxyID"].apply(lambda gid: images_dir / f"{gid}.jpg")
     return subset
+
+
+def get_manifest_subset(manifest_path: Path, data_dir: Path = DEFAULT_DATA_DIR) -> pd.DataFrame:
+    """Load a pilot manifest built by select_subset.py (real GZ2 vote-fraction
+    labels), resolving each GalaxyID to its image path.
+    """
+    images_dir = _ensure_images_extracted(data_dir)
+    manifest = pd.read_csv(manifest_path)
+    manifest["image_path"] = manifest["GalaxyID"].apply(lambda gid: images_dir / f"{gid}.jpg")
+    return manifest

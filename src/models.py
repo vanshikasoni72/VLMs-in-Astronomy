@@ -134,7 +134,7 @@ def load_zoobot():
     return {"model": model}
 
 
-def predict_zoobot(loaded, image, prompt):
+def embed_zoobot(loaded, image):
     import torchvision.transforms as T
 
     model = loaded["model"]
@@ -142,7 +142,43 @@ def predict_zoobot(loaded, image, prompt):
     x = transform(image.convert("RGB")).unsqueeze(0).to(_device())
     with torch.no_grad():
         features = model(x)
-    return f"PLACEHOLDER (encoder embedding only, no morphology head): embedding_norm={features.norm().item():.3f}"
+    return features.squeeze(0).cpu().numpy()
+
+
+def predict_zoobot(loaded, image, prompt):
+    embedding = embed_zoobot(loaded, image)
+    norm = float((embedding**2).sum() ** 0.5)
+    return f"PLACEHOLDER (encoder embedding only, no morphology head): embedding_norm={norm:.3f}"
+
+
+# ---------- CLIP (general baseline, embeddings) ----------
+
+def load_clip():
+    from transformers import CLIPModel, CLIPProcessor
+
+    model_id = "openai/clip-vit-base-patch32"
+    processor = CLIPProcessor.from_pretrained(model_id)
+    model = CLIPModel.from_pretrained(model_id)
+    model.eval()
+    model.to(_device())
+    return {"model": model, "processor": processor}
+
+
+def embed_clip(loaded, image):
+    # In this transformers version, get_image_features() returns a
+    # BaseModelOutputWithPooling, not a plain tensor — .pooler_output is the
+    # projected 512-d CLIP embedding (verified against the expected dim).
+    model, processor = loaded["model"], loaded["processor"]
+    inputs = processor(images=image, return_tensors="pt").to(_device())
+    with torch.no_grad():
+        output = model.get_image_features(**inputs)
+    return output.pooler_output.squeeze(0).cpu().numpy()
+
+
+def predict_clip(loaded, image, prompt):
+    embedding = embed_clip(loaded, image)
+    norm = float((embedding**2).sum() ** 0.5)
+    return f"PLACEHOLDER (embedding only, no classification head): embedding_norm={norm:.3f}"
 
 
 # ---------- AstroCLIP (astronomy baseline) ----------
@@ -194,5 +230,14 @@ MODEL_REGISTRY = {
     "qwen2vl_2b": (load_qwen2vl_2b, predict_qwen2vl),   # local-friendly
     "blip2": (load_blip2, predict_blip2),               # local-friendly (slow on CPU)
     "zoobot": (load_zoobot, predict_zoobot),            # local-friendly, placeholder output
+    "clip": (load_clip, predict_clip),                  # local-friendly, placeholder output
     "astroclip": (load_astroclip, predict_astroclip),   # disabled until remote-code decision is made
+}
+
+# Separate registry for the real embedding-based anomaly detection
+# (src/anomaly_lof.py) — these expose the raw embedding vector rather than a
+# formatted answer string.
+EMBEDDING_REGISTRY = {
+    "zoobot": (load_zoobot, embed_zoobot),
+    "clip": (load_clip, embed_clip),
 }
