@@ -1,0 +1,51 @@
+image_id,model_name,prompt_id,answer,timestamp
+516751,blip2_flant5,p1,a spiral galaxy is a galaxy that has a shape that is shaped like a twisted spiral,2026-10-23T09:07:29.750314+00:00
+803787,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a lot of stars in it",2026-10-23T09:07:53.369028+00:00
+758184,blip2_flant5,p1,a galaxy with a heart shape is called a heart'' galaxy,2026-10-23T09:08:22.602610+00:00
+527918,blip2_flant5,p1,a galaxy with two bright stars is called a double star galaxy,2026-10-23T09:08:49.705925+00:00
+485143,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a shape that is shaped like a snake",2026-10-23T09:09:25.787578+00:00
+236236,blip2_flant5,p1,a spiral galaxy is a galaxy that has a shape that is shaped like a spherical shell,2026-10-23T09:10:05.957905+00:00
+343647,blip2_flant5,p1,"a galaxy is a massive, rotating, spiral galaxy that contains many stars",2026-10-23T09:10:44.983359+00:00
+553727,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a very large number of stars",2026-10-23T09:11:32.477994+00:00
+148971,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a lot of stars in it",2026-10-23T09:12:21.556859+00:00
+826038,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a shape that is shaped like a snake",2026-10-23T09:13:01.790320+00:00
+244714,blip2_flant5,p1,a galaxy with a blue blob in the middle is called a blue blot'',2026-10-23T09:13:39.890284+00:00
+687432,blip2_flant5,p1,"a spiral galaxy is a galaxy that has a shape that is shaped like a circle, but has radial symmetry",2026-10-23T09:14:18.930858+00:00
+544015,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a shape that is similar to a heart",2026-10-23T09:14:55.545374+00:00
+662018,blip2_flant5,p1,"a galaxy with a large, bright star in the center is called a flare'' galaxy",2026-10-23T09:15:39.619777+00:00
+696497,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a shape that is shaped like a wormhole",2026-10-23T09:16:35.488275+00:00
+815416,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a very large number of stars",2026-10-23T09:17:22.186223+00:00
+489626,blip2_flant5,p1,a spiral galaxy is a galaxy that has a shape that is curved or twisted,2026-10-23T09:18:03.105039+00:00
+133499,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a shape that is shaped like a star",2026-10-23T09:18:45.844289+00:00
+594745,blip2_flant5,p1,a spiral galaxy is a galaxy that has a shape that is shaped like a ring,2026-10-23T09:19:26.327543+00:00
+391069,blip2_flant5,p1,a spiral galaxy is a galaxy that has a shape that is shaped like a tetrahedron,2026-10-23T09:20:23.611386+00:00
+769081,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a shape that is similar to a heart",2026-10-23T09:21:07.894643+00:00
+454894,blip2_flant5,p1,a spiral galaxy is a galaxy that has a shape that is shaped like a spherical or conical shape,2026-10-23T09:21:47.749235+00:00
+705233,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a shape that is shaped like a spiral''",2026-10-23T09:22:28.131093+00:00
+851326,blip2_flant5,p1,a spiral galaxy is a galaxy that has a shape that is shaped like a twisted spiral,2026-10-23T09:23:06.072314+00:00
+579750,blip2_flant5,p1,a galaxy with two bright stars is called a 'semi-selective galaxy',2026-10-23T09:23:47.179785+00:00
+100322,blip2_flant5,p1,a spiral galaxy is a galaxy that has a shape that is shaped like a spherical or conical shape,2026-10-23T09:24:48.887186+00:00
+622386,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a very large central bulge",2026-10-23T09:25:15.411625+00:00
+621974,blip2_flant5,p1,"this galaxy is a spiral galaxy, and the shape of the galaxy is unusual",2026-10-23T09:25:41.500967+00:00
+622010,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a very large central bulge",2026-10-23T09:26:17.889661+00:00
+621499,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a lot of stars in it",2026-10-23T09:27:02.461995+00:00
+621621,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a very large central bulge",2026-10-23T09:27:40.781141+00:00
+622669,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has many small, irregularly shaped galaxies",2026-10-23T09:28:18.527446+00:00
+622685,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a very long tail",2026-10-23T09:28:52.725301+00:00
+622721,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a very large number of stars",2026-10-23T09:29:27.459075+00:00
+621110,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a very large central bulge",2026-10-23T09:30:03.016178+00:00
+621284,blip2_flant5,p1,a typical galaxy is a spiral galaxy with a central bulge and a large disk of stars,2026-10-23T09:30:38.926733+00:00
+622905,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a very large central bulge",2026-10-23T09:31:17.496565+00:00
+622992,blip2_flant5,p1,a typical galaxy is a spiral galaxy with a central bulge and a large disk of stars,2026-10-23T09:31:54.006436+00:00
+623020,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a very large central bulge",2026-10-23T09:32:32.370210+00:00
+620989,blip2_flant5,p1,"a galaxy with a large, bright star in the center is called a cluster",2026-10-23T09:33:09.258669+00:00
+623474,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a very long tail",2026-10-23T09:33:46.048271+00:00
+623485,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a very long tail",2026-10-23T09:34:21.813373+00:00
+620492,blip2_flant5,p1,a spiral galaxy is a galaxy with a large number of stars,2026-10-23T09:34:55.542075+00:00
+998947,blip2_flant5,p1,a galaxy with a bright star in the center is called a globular cluster,2026-10-23T09:35:31.209390+00:00
+100623,blip2_flant5,p1,"a spiral galaxy is a galaxy with a long, thin, and elongated shape",2026-10-23T09:36:07.314501+00:00
+100724,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a very large central bulge",2026-10-23T09:36:42.368986+00:00
+620268,blip2_flant5,p1,a typical galaxy is a spiral galaxy with a central bulge and a large disk of stars,2026-10-23T09:37:18.208567+00:00
+623827,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a very large central bulge",2026-10-23T09:37:54.415573+00:00
+619695,blip2_flant5,p1,"this galaxy is a spiral galaxy, which means it has a lot of stars",2026-10-23T09:38:29.583446+00:00
+624198,blip2_flant5,p1,a typical galaxy is a spiral galaxy with a central bulge and a tail,2026-10-23T09:39:05.628211+00:00
