@@ -1,12 +1,12 @@
 # Weekly Update — Oct 23, 2026
 
-**This week:** Ran a small test (not final results) to check that I can actually get AI models working on real galaxy pictures, and compare them against real human answers.
+**Summary:** A small pilot test was carried out this week to confirm that AI models can be applied to real galaxy images and benchmarked against real human answers. Results below are preliminary, not final findings.
 
-## What I did
+## What was done
 
-- Tested **6 AI models**, 2 different ways
-- Checked both ways against real votes from Galaxy Zoo citizen-science volunteers (not invented answers)
-- Everything ran on my laptop (no GPU) — the biggest models need a bigger computer, see "Next steps"
+- 6 AI models tested, using 2 different methods
+- Both methods checked against real votes from Galaxy Zoo citizen-science volunteers (not invented answers)
+- All testing run locally on a standard laptop (no GPU) — the largest models require more compute, see "Next steps"
 
 ## Method 1: ask the model directly, in words
 
@@ -22,7 +22,7 @@
 
 ## Method 2: score "unusualness" without asking in words
 
-Turn each image into a numeric fingerprint, measure how far it sits from other images, compare that score to real human votes.
+Each image is turned into a numeric fingerprint; distance from other images is measured and compared to real human votes.
 
 | Model | Trained on | Matches human votes |
 |---|---|---|
@@ -30,7 +30,7 @@ Turn each image into a numeric fingerprint, measure how far it sits from other i
 | CLIP | general images + text | Middle |
 | DINOv2 | general images | Lowest |
 
-**Takeaway:** the model trained specifically on galaxies agrees with humans more than two different general-purpose models. Spot-checked a few examples by eye — holds up.
+**Takeaway:** the model trained specifically on galaxies agrees with humans more than two different general-purpose models. A few examples were spot-checked by eye and the pattern holds up.
 
 ## Caveats
 
