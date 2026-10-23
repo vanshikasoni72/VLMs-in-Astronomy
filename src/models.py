@@ -118,6 +118,35 @@ def predict_blip2(loaded, image, prompt):
     return decoded[len(qa_prompt):].strip()
 
 
+# ---------- BLIP-2 (Flan-T5-XL decoder) ----------
+# Same vision encoder family as blip2-opt-2.7b, but a Flan-T5-XL (instruction
+# -tuned) decoder instead of plain OPT — a genuine comparison point for
+# whether a more instruction-tuned decoder hallucinates less on the same
+# images. At ~3.94B params, fp32 (~15.8GB) is too close to this machine's
+# 15.4GB RAM for comfort — forcing float16 here specifically (half the
+# memory) rather than relying on the usual CPU-defaults-to-fp32 logic.
+
+def load_blip2_flant5():
+    from transformers import AutoProcessor, Blip2ForConditionalGeneration
+
+    model_id = "Salesforce/blip2-flan-t5-xl"
+    processor = AutoProcessor.from_pretrained(model_id)
+    model = Blip2ForConditionalGeneration.from_pretrained(
+        model_id, torch_dtype=torch.float16, low_cpu_mem_usage=True
+    )
+    model.to("cpu")
+    return {"model": model, "processor": processor}
+
+
+def predict_blip2_flant5(loaded, image, prompt):
+    model, processor = loaded["model"], loaded["processor"]
+    qa_prompt = f"Question: {prompt} Answer:"
+    inputs = processor(images=image, text=qa_prompt, return_tensors="pt").to(model.device, model.dtype)
+    output = model.generate(**inputs, **GENERATE_KWARGS)
+    decoded = processor.batch_decode(output, skip_special_tokens=True)[0]
+    return decoded.strip()
+
+
 # ---------- Zoobot (astronomy baseline) ----------
 # Uses only the pretrained encoder (via timm), not a GZ2-decision-tree
 # classification head, so predict_zoobot() returns an embedding-norm
@@ -260,6 +289,7 @@ MODEL_REGISTRY = {
     "qwen2vl_7b": (load_qwen2vl_7b, predict_qwen2vl),   # Kaggle GPU only
     "qwen2vl_2b": (load_qwen2vl_2b, predict_qwen2vl),   # local-friendly
     "blip2": (load_blip2, predict_blip2),               # local-friendly (slow on CPU)
+    "blip2_flant5": (load_blip2_flant5, predict_blip2_flant5),  # local-friendly (slow, near RAM limit)
     "zoobot": (load_zoobot, predict_zoobot),            # local-friendly, placeholder output
     "clip": (load_clip, predict_clip),                  # local-friendly, placeholder output
     "dinov2": (load_dinov2, predict_dinov2),            # local-friendly, placeholder output

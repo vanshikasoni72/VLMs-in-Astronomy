@@ -10,6 +10,7 @@ report with the correlation finding per model.
 import argparse
 import csv
 import gc
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -41,13 +42,19 @@ def run_one_model(model_name, subset, n_neighbors, results_writer, results_file,
 
     embeddings = []
     image_ids = []
-    for _, row in subset.iterrows():
+    t0 = time.monotonic()
+    n = len(subset)
+    checkpoint = max(1, n // 20)  # ~20 progress/throughput log lines per model
+    for i, (_, row) in enumerate(subset.iterrows(), start=1):
         try:
             image = Image.open(row["image_path"]).convert("RGB")
             embeddings.append(embed_fn(loaded, image))
             image_ids.append(row["GalaxyID"])
         except Exception as exc:
             log(f"  {model_name} failed on {row['GalaxyID']}: {exc!r}")
+        if i % checkpoint == 0 or i == n:
+            elapsed = time.monotonic() - t0
+            log(f"  {model_name}: {i}/{n} images, {elapsed:.1f}s elapsed, {i / elapsed:.2f} img/s")
 
     del loaded
     gc.collect()
