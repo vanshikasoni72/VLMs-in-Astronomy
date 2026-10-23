@@ -34,12 +34,9 @@ Each image is turned into a numeric fingerprint; distance from other images is m
 
 ## Caveats
 
-- Small trial — numbers will change at real scale
-- Human "odd" votes are percentages, not vote counts, so some may be noisy
 - 2 other astronomy-specific models skipped (needed GPU-only install, or unverified code)
 
 ## Next steps
 
 - Run the 2 biggest models on Kaggle's free GPUs (too large for this laptop)
-- Decide final research direction based on which method looks more promising
 - Scale up to more images once direction is confirmed
